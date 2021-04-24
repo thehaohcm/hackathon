@@ -30,8 +30,8 @@
         next
       </button>
     </div>
-    <span v-if="questionindex == quizez.length"
-      >Your Total score is {{ score }} / {{ quizez.length }}
+    <span v-if="questionindex == quizez.length">
+	  Your Total score is {{ score }} / {{ quizez.length }}
 	</span>
   </div>
 </template>

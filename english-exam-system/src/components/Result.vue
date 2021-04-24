@@ -1,11 +1,13 @@
 <template>
 	<div class="review">
-	  <h1>Result</h1>
+		<h1>Result</h1>
 	  
-	  <div class="panel">
-	  	<div>Name: {{name}}</div>
-		<div>Email: {{email}}</div>
-	  </div>
+		<div class="panel">
+			<div>Name: {{name}}</div>
+			<div>Email: {{email}}</div>
+			<div>Score: {{score}}</div>
+			<div>You will be received an email including your score and a result. Please check out your email inbox</div>
+		</div>
   	</div>
 </template>
 

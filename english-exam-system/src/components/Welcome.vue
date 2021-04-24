@@ -38,12 +38,33 @@ export default {
 			isShown: false
 		}
 	},
+	created:function(){
+		var _name=this.$route.query.name;
+		var _email=this.$route.query.email;
+		if(_name&&_email&&this.validateEmail(_email)){
+			this.$store.state.name=_name;
+			this.$store.state.email=_email;
+			this.name=_name;
+			this.email=_email;
+		}else if(!this.$store.state.name||!this.$store.state.email){
+			this.$router.push({
+				name: 'InputInfo'
+			});
+		}
+	},
+	methods:{
+		validateEmail(email) {
+			const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(String(email).toLowerCase());
+		}
+	},
 	watch: {
         timerCount: {
             handler(value) {
                 if (value > 0) {
                 setTimeout(() => {
                     this.timerCount--;
+					this.timerCount=('0'+this.timerCount).slice(-2);
                 }, 1000);
                 }else if(value==0){
 					this.isHidden=true;
