@@ -1,6 +1,6 @@
 <template>
   <div class="welcome">
-    <h2>Hello and welcome to a S3Corp's Annual English Examination</h2>
+    <h2>Hello and welcome to {{msg}}</h2>
 	<div class="info">
 		<div class="lbl">
 			<label>Name:</label><label>{{name}}</label>
@@ -14,29 +14,30 @@
 		<div class="cntdwn-pnl">
 			{{timerCount}}
 		</div>
-		second
+		second(s)
 	</div>
 	
 	<div v-if="isShown" style="margin-top: 30px;">
 		If the application cannot automatically redirect, please click
 		<router-link class="nav-link" to="/questions"><b>here to start</b></router-link>
 	</div>
-	<h4>Hope you have a good day</h4>
+	<h4>Good luck and have a good day</h4>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-		name: 'Hao Nguyen',
-		email: 'hao.nguyen@s3corp.com.vn',
-		timerCount : 10,
-		isHidden: false,
-		isShown: false
-    }
-  },
+	name: 'HelloWorld',
+	data () {
+		return {
+			msg: "a S3Corp's Annual English Examination",
+			name: this.$store.state.name,
+			email: this.$store.state.email,
+			timerCount: this.$store.state.timeCount,
+			isHidden: false,
+			isShown: false
+		}
+	},
 	watch: {
         timerCount: {
             handler(value) {
@@ -75,7 +76,6 @@ a {
 }
 .welcome{
 	text-align: center;
-	margin: 100px 120px;
 }
 .info{
 	border-style: dashed;

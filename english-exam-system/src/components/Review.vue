@@ -1,8 +1,23 @@
 <template>
-	<div class="header">
-	  <h1>English Examination System</h1>
+	<div class="review">
+	  <h1>Review</h1>
+	  
+	  <div class="review-table">
+
+	  </div>
   	</div>
 </template>
+
+<script>
+export default {
+	name: "question",
+	data: function() {
+		return {
+			
+		};
+	}
+};
+</script>
 
 <style scoped>
 h1 {

@@ -1,7 +1,7 @@
 <template>
   <div class="app">
 	  <Header />
-	  <router-view></router-view>
+	  <router-view class="panel"></router-view>
 	  <Footer />
   </div>
 </template>
@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+.panel{
+	margin: 100px 120px;
+}
 </style>
