@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import RemainingTimer from './RemainingTimer'
 
 export default {
@@ -47,9 +48,18 @@ export default {
 	data: function() {
 		return {
 			questionindex: 0,
-			quizez: this.$store.state.questions,
-			answers: Array(this.$store.state.questions).fill("")
+			quizez: null,
+			answers:null
 		};
+	},
+	created(){
+		console.log("fda");
+		axios.get('https://fivemanuman.gitlab.io/toeic/questions/questions.json')
+		.then((response) => {
+			console.log("response: "+JSON.stringify(response.data.questions));
+			this.quizez=response.data.questions;
+			this.answers=Array(this.quizez).fill("")
+		})
 	},
 	methods: {
 		// Go to next question

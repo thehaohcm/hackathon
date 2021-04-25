@@ -17,9 +17,9 @@ export default new Router({
 			component: Welcome
 		},
 		{
-		path: '/questions',
-		name: 'Question',
-		component: Question
+			path: '/questions',
+			name: 'Question',
+			component: Question
 		},
 		{
 			path: '/review',
