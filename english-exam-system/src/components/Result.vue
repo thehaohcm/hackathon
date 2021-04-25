@@ -1,11 +1,11 @@
 <template>
-	<div class="review">
+	<div class="result">
 		<h1>Result</h1>
 	  
 		<div class="panel">
 			<div>Name: {{name}}</div>
 			<div>Email: {{email}}</div>
-			<div>Score: {{score}}</div>
+			<div>Score: {{score}} / {{questionSize}}</div>
 			<div>You will be received an email including your score and a result. Please check out your email inbox</div>
 		</div>
   	</div>
@@ -17,7 +17,9 @@ export default {
 	data: function() {
 		return {
 			name: this.$store.state.name,
-			email: this.$store.state.email
+			email: this.$store.state.email,
+			score: this.$store.state.score,
+			questionSize: this.$store.state.questionSize,
 		};
 	}
 };

@@ -1,38 +1,35 @@
 <template>
   <div id="question">
 	  <RemainingTimer />
-    <div
-      v-for="(quiz, index) in quizez"
-      :key="quiz"
-      v-show="index === questionindex">
+    <div v-for="(quiz, index_quiz) in quizez" :key="index_quiz" v-show="index_quiz === questionindex">
       <h1>{{ quiz.category }}</h1>
 
       <h2>{{ quiz.question }}</h2>
       <ol type="A">
-        <li v-for="answer in quiz.incorrect_answers" :key="answer">
+        <li v-for="(answer, index_answer) in quiz.incorrect_answers" :key="index_answer">
           <label>
-            <input
-              type="radio"
-              name="answer"
-              v-model="answers[index]"
-              :value="answer"
-            />
+            <input type="radio" name="answer" v-model="answers[index_answer]" :value="answer" v-on:change="answerQuestion(index_quiz, index_answer,answer)"/>
             {{ answer }}
           </label>
         </li>
       </ol>
     </div>
-    <div class="btns" v-if="questionindex < quizez.length">
+    <div class="btns" v-if="quizez && questionindex < quizez.length">
       <button class="btn prev" v-if="questionindex > 0" v-on:click="prev">
-        prev
+        Prev
       </button>
-      <button class="btn next" v-on:click="next">
-        next
+      <button class="btn next" v-if="questionindex < quizez.length - 1" v-on:click="next">
+        Next
       </button>
+	  <div class="rvsb" v-if="questionindex == quizez.length - 1">
+		<button class="btn review" v-on:click="review">
+			Review
+		</button>
+		<button class="btn submit" v-on:click="submit">
+			Submit
+		</button>
+	  </div>
     </div>
-    <span v-if="questionindex == quizez.length">
-	  Your Total score is {{ score }} / {{ quizez.length }}
-	</span>
   </div>
 </template>
 
@@ -49,15 +46,14 @@ export default {
 		return {
 			questionindex: 0,
 			quizez: null,
-			answers:null
+			answers: null
 		};
 	},
 	created(){
-		console.log("fda");
 		axios.get('https://fivemanuman.gitlab.io/toeic/questions/questions.json')
 		.then((response) => {
-			console.log("response: "+JSON.stringify(response.data.questions));
 			this.quizez=response.data.questions;
+			this.$store.state.questionSize=this.quizez.length;
 			this.answers=Array(this.quizez).fill("")
 		})
 	},
@@ -69,18 +65,45 @@ export default {
 		// Go to previous question
 		prev: function() {
 			this.questionindex--;
-		}
-	},
-	computed: {
-		score: function() {
-		var total = 0;
-		for (var i = 0; i < this.answers.length; i++) {
-			if (this.answers[i] == this.quizez[i].correct_answer) {
-			total += 1;
+		},
+		review(){
+			this.$router.push({
+				name: 'Review'
+			});
+		},
+		submit(){
+			if(confirm("Do you really want to submit without reviewing?")){
+				this.score();
+				this.$router.push({
+					name: 'Result'
+				});
 			}
+		},
+		score: function() {
+			var total = 0;
+			for (var i = 0; i < this.answers.length; i++) {
+				if (this.answers[i] == this.quizez[i].correct_answer) {
+					total += 1;
+				}
+			}
+			this.$store.state.score=total;
+		},
+		answerQuestion(index_quiz, index_answer, answer){
+			console.log("index_quiz: "+index_quiz+", index_answer: "+index_answer+", answer: "+answer)
 		}
-		return total;
-		}
+		// foo(e){
+			
+		// }
+	},
+	watch:{
+		// answers(val,oldvar){
+		// 	for (var i = 0; i < this.answers.length; i++) {
+		// 		if(this.answers[i]==val){
+		// 			console.log("i: "+i+", value: "+val);
+		// 			break;
+		// 		}
+		// 	}
+		// }
 	}
 };
 </script>

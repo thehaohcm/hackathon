@@ -13,6 +13,8 @@ export default new Vuex.Store({
 		name: '',
 		email: '',
 		timeCount: 10,
+		questionSize: 0,
+		score: 0,
 	},
 
 	getters:{
