@@ -1,0 +1,26 @@
+<template>
+  <div class="app">
+	  <Header />
+	  <router-view class="panel"></router-view>
+	  <Footer />
+  </div>
+</template>
+
+<script>
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+
+export default {
+	name: 'App',
+	components:{
+		Header,
+		Footer
+	}
+}
+</script>
+
+<style scoped>
+.panel{
+	margin: 100px 120px;
+}
+</style>
