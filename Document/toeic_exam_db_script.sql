@@ -27,9 +27,9 @@ create table QUESTION (
 	id int not null primary key auto_increment,
     topic_id int not null,
     difficulty_level_id int not null,
-    question varchar(500) not null,
-    option_1 varchar(50) not null,
-    option_2 varchar(50) not null,
+    question varchar(500),
+    option_1 varchar(50),
+    option_2 varchar(50),
     option_3 varchar(50),
     option_4 varchar(50),
     correct_answer varchar(50) not null,
@@ -71,3 +71,20 @@ create table REPORT (
 );
 
 alter table `USER` add foreign key(current_report) references REPORT(id);
+
+INSERT INTO `toeic_exam_db`.`DIFFICULTY_LEVEL` (`id`, `name`, `description`) VALUES (1, 'Easy', NULL);
+INSERT INTO `toeic_exam_db`.`DIFFICULTY_LEVEL` (`id`, `name`, `description`) VALUES (2, 'Normal', NULL);
+INSERT INTO `toeic_exam_db`.`DIFFICULTY_LEVEL` (`id`, `name`, `description`) VALUES (3, 'Hard', NULL);
+INSERT INTO `toeic_exam_db`.`DIFFICULTY_LEVEL` (`id`, `name`, `description`) VALUES (4, 'Very Hard', NULL);
+
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (1, 'Picture Description', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (2, 'Question - Response', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (3, 'Short Conversations', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (4, 'Short Talks', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (5, 'Incomplete Sentences', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (4, 'Text Completion', NULL);
+INSERT INTO `toeic_exam_db`.`TOPIC` (`id`, `name`, `description`) VALUES (6, 'Reading Comprehension', NULL);
+
+INSERT INTO `toeic_exam_db`.`QUESTION` (`id`, `topic_id`, `difficulty_level_id`, `question`, `option_1`, `option_2`, `option_3`, `option_4`, `correct_answer`, `multipart`, `is_active`) VALUES (1, 5, 2, 'Departmental restructing will be discussed at the ___ monthly meeting', 'next', 'always', 'soon', 'like', 'next', NULL, 1);
+INSERT INTO `toeic_exam_db`.`QUESTION` (`id`, `topic_id`, `difficulty_level_id`, `question`, `option_1`, `option_2`, `option_3`, `option_4`, `correct_answer`, `multipart`, `is_active`) VALUES (2, 5, 2, 'To keep ___ park beautiful, please place your nonrecyclables in the available trash cans', 'our', 'we', 'us', 'ours', 'our', NULL, 1);
+INSERT INTO `toeic_exam_db`.`QUESTION` (`id`, `topic_id`, `difficulty_level_id`, `question`, `option_1`, `option_2`, `option_3`, `option_4`, `correct_answer`, `multipart`, `is_active`) VALUES (3, 5, 2, 'Mr. Hardin ___ additional images of the office building he is interested in leasing', 'informed', 'asked', 'advised', 'requested', 'asked', NULL, DEFAULT);
