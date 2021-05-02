@@ -3,7 +3,7 @@
 	  <h1>Review</h1>
 	  
 	  <div class="review-table">
-
+		  
 	  </div>
   	</div>
 </template>
@@ -15,6 +15,9 @@ export default {
 		return {
 			
 		};
+	},
+	method:{
+		
 	}
 };
 </script>

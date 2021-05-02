@@ -8,6 +8,9 @@
 			<div>Score: {{score}} / {{questionSize}}</div>
 			<div>You will be received an email including your score and a result. Please check out your email inbox</div>
 		</div>
+		<div class="panel_btn">
+			<button v-on:click="exit">{{msg_btn}}</button>
+		</div>
   	</div>
 </template>
 
@@ -20,7 +23,16 @@ export default {
 			email: this.$store.state.email,
 			score: this.$store.state.score,
 			questionSize: this.$store.state.questionSize,
+			msg_btn: "Exit",
 		};
+	},
+	method:{
+		exit(){
+			this.$router.push({
+				name: 'Finished',
+				params: { closed: 'true' }, 
+			});
+		}
 	}
 };
 </script>

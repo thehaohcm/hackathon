@@ -5,6 +5,7 @@ import Question from '@/components/Question'
 import Review from '@/components/Review'
 import Result from '@/components/Result'
 import InputInfo from '@/components/InputInfo'
+import Finished from '@/components/Finished'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
 			path: '/result',
 			name: 'Result',
 			component: Result
+		},
+		{
+			path: '/finished',
+			name: 'Finished',
+			component: Finished
 		},
 		{
 			path: '/input',

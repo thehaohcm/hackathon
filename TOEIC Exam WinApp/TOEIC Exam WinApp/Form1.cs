@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
@@ -62,7 +62,7 @@ namespace TOEIC_Exam_WinApp
         {
             //this.InvokeOnUiThreadIfRequired(() => Text = e.Address);
 
-            if (e.Address.Equals(url + "/finish?close=true"){
+            if (e.Address.Equals(url + "/finished?closed=true"){
                 Application.Exit();
             }
         }
