@@ -1,6 +1,6 @@
 <template>
 	<div class="footer">
-	  <h4>Copyright © by TIM team 2021. All rights reserved</h4>
+	  <p style="margin:0;"><strong>Copyright © by TIM team 2021. All rights reserved</strong></p>
   	</div>
 </template>
 
@@ -13,5 +13,9 @@
   	background-color:rgb(81, 84, 85);
   	color: white;
   	text-align: center;
+	padding: 15px;
+}
+p{
+	margin-top: 10px;
 }
 </style>

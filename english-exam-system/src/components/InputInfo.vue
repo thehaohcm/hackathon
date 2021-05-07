@@ -31,7 +31,6 @@ export default {
 				if(this.validateEmail(this.email)){
 					this.$store.state.name=this.name;
 					this.$store.state.email=this.email;
-
 					this.$router.push({
 						name: 'Welcome'
 					});

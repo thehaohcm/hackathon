@@ -24,7 +24,7 @@ export default {
 					this.isHidden=true;
 					this.isShown=true;
 					this.$router.push({
-						name: 'Question'
+						name: 'InputInfo'
 					});
 				}
             },

@@ -16,7 +16,6 @@
 
 <script>
 export default {
-	name: "question",
 	data: function() {
 		return {
 			name: this.$store.state.name,
@@ -26,11 +25,12 @@ export default {
 			msgBtn: "Exit",
 		};
 	},
-	method:{
+	methods:{
 		exit(){
+			console.log("isClose: "+this.isClose);
 			this.$router.push({
 				name: 'Finished',
-				params: { closed: 'true' }, 
+				query: { is_closed: this.$store.state.is_closed}, 
 			});
 		}
 	}

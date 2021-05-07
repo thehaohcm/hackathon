@@ -15,6 +15,7 @@ export default new Vuex.Store({
 		timeCount: 10,
 		questionSize: 0,
 		score: 0,
+		is_closed: false,
 	},
 
 	getters:{

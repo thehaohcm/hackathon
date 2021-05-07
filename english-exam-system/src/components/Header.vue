@@ -6,15 +6,14 @@
 
 <style scoped>
 h1 {
-  font-weight: normal;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #fff;
 }
 .header{
-	position: absolute;
-  	left: 0;
-  	top: 0;
-  	width: 100%;
-  	background-color:rgb(119, 176, 195);
-  	color: rgb(68, 67, 67);
-  	text-align: center;
+	background-color: #f3b426;
+	color: rgb(68, 67, 67);
+	text-align: center;
+	padding: 10px;
 }
 </style>

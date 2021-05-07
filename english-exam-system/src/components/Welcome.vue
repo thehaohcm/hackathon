@@ -42,6 +42,7 @@ export default {
 		var _name=this.$route.query.name;
 		var _email=this.$route.query.email;
 		if(_name&&_email&&this.validateEmail(_email)){
+			this.$store.state.is_closed=true;
 			this.$store.state.name=_name;
 			this.$store.state.email=_email;
 			this.name=_name;
