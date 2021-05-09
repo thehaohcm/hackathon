@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{F533496E-216F-43CF-899E-B5240C94CFB7}|Default">
+  <MonoDevelop.Ide.ItemProperties.EnglishExamService PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EnglishExamService/Startup.cs">
+    <Files>
+      <File FileName="EnglishExamService/Startup.cs" Line="5" Column="35" />
+      <File FileName="EnglishExamService/Properties/launchSettings.json" Line="22" Column="29" />
+      <File FileName="EnglishExamService/Controllers/HomeController.cs" Line="28" Column="80" />
+      <File FileName="EnglishExamService/Program.cs" Line="1" Column="1" />
+      <File FileName="EnglishExamService/appsettings.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EnglishExamService" expanded="True">
+            <Node name="EnglishExamService" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

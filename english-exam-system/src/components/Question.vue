@@ -1,66 +1,83 @@
 <template>
-  <div id="question">
-	  <RemainingTimer />
-    <div v-for="(part, index_part) in parts" :key="index_part">
-      <h1>Part {{part.partNumber}}: {{ part.partName }}</h1>
-		<br/>
-      <!-- <h2>{{ part.question }}</h2> -->
-      <!-- <ol type="A">
-        <li v-for="(answer, index_answer) in quiz.incorrect_answers" :key="index_answer">
-          <label>
-            <input type="radio" name="answer" v-model="answers[index_answer]" :value="answer" v-on:change="answerQuestion(index_quiz, index_answer,answer)"/>
-            {{ answer }}
-          </label>
-        </li>
-      </ol> -->
+  	<div id="question">
+		<RemainingTimer />
+		<div v-for="(part, index_part) in parts" :key="index_part">
+			<h1>Part {{part.partNumber}}: {{ part.partName }}</h1>
+			<br/>
+			<!-- <h2>{{ part.question }}</h2> -->
+			<!-- <ol type="A">
+				<li v-for="(answer, index_answer) in quiz.incorrect_answers" :key="index_answer">
+				<label>
+					<input type="radio" name="answer" v-model="answers[index_answer]" :value="answer" v-on:change="answerQuestion(index_quiz, index_answer,answer)"/>
+					{{ answer }}
+				</label>
+				</li>
+			</ol> -->
 
-	  <div v-for="(quesItem, index_ques) in part.items" :key="index_ques">
-		  <div v-for="(contentItem, index_content) in quesItem.content" :key="index_content">
-			  <div v-if="contentItem.type=='audio'">
-				<audio controls :src="contentItem.source" type="audio/mp3" controlsList="nodownload"></audio>
-				<br />
-			  </div>
-			  <div v-if="contentItem.type=='image'">
-				<img :src="contentItem.source"/>
-				<br />
-			  </div>
-			  <div v-if="contentItem.type=='text'">
-				  <p>{{contentItem.source}}</p>
-				  <br />
-			  </div>
-		  </div>
-		  <div v-for="(question, index_question) in quesItem.questions" :key="index_question">
-			  <h4 class="question">Question {{question.id}}.&emsp;{{question.question}}</h4>
-				<ol type="A">
-					<li v-for="(optionItem, index_option) in question.options" :key="index_option">
-					<label>
-						<input type="radio" name="answer"/>
-						{{ optionItem.content }}
-					</label>
-					</li>
-				</ol>
-		  </div>
-	  </div>
-    </div>
+			<div v-for="(quesItem, index_ques) in part.items" :key="index_ques">
+				<div v-for="(contentItem, index_content) in quesItem.content" :key="index_content">
+					<div v-if="contentItem.type=='audio'">
+						<audio controls :src="contentItem.source" type="audio/mp3" controlsList="nodownload"></audio>
+						<br />
+					</div>
+					<div v-if="contentItem.type=='image'">
+						<img :src="contentItem.source"/>
+						<br />
+					</div>
+					<div v-if="contentItem.type=='text'">
+						<p>{{contentItem.source}}</p>
+						<br />
+					</div>
+				</div>
+				<div v-for="(question, index_question) in quesItem.questions" :key="index_question">
+					<h4 class="question">Question {{question.id}}.&emsp;{{question.question}}</h4>
+					<ol type="A">
+						<li v-for="(optionItem, index_option) in question.options" :key="index_option">
+						<label>
+							<input type="radio" name="answer"/>
+							{{ optionItem.content }}
+						</label>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
 
+		<div class="btns">
+			<button class="btn btn-outline-info btn-lg prev" v-on:click="prev">
+				Prev
+			</button>
+			<button class="btn btn-outline-info btn-lg next" v-on:click="next">
+				Next
+			</button>
+			<div class="rvsb">
+				<button class="btn btn-secondary btn-lg review" v-on:click="review">
+					Review
+				</button>
+				<button class="btn btn-primary btn-lg active" v-on:click="submit">
+					Submit
+				</button>
+			</div>
+		</div>
+		
 
-    <!-- <div class="btns" v-if="quizez && questionindex < quizez.length">
-      <button class="btn prev" v-if="questionindex > 0" v-on:click="prev">
-        Prev
-      </button>
-      <button class="btn next" v-if="questionindex < quizez.length - 1" v-on:click="next">
-        Next
-      </button>
-	  <div class="rvsb" v-if="questionindex == quizez.length - 1">
-		<button class="btn review" v-on:click="review">
-			Review
-		</button>
-		<button class="btn submit" v-on:click="submit">
-			Submit
-		</button>
-	  </div>
-    </div> -->
-  </div>
+		<!-- <div class="btns" v-if="quizez && questionindex < quizez.length">
+			<button class="btn btn-outline-primary btn-lg prev" v-on:click="prev">
+				Prev
+			</button>
+			<button class="btn btn-outline-primary btn-lg next" v-on:click="next">
+				Next
+			</button>
+			<div class="rvsb" v-if="questionindex == quizez.length - 1">
+				<button class="btn btn-outline-primary btn-lg review" v-on:click="review">
+					Review
+				</button>
+				<button class="btn btn-outline-primary btn-lg submit" v-on:click="submit">
+					Submit
+				</button>
+			</div>
+		</div> -->
+	</div>
 </template>
 
 <script>
@@ -80,7 +97,13 @@ export default {
 			currentPartIndex: 0,
 		};
 	},
-	created(){
+	created: function(){
+		if(!this.$store.state.name || !this.$store.state.email){
+			this.$router.push({
+				name: 'InputInfo'
+			});
+		}
+			
 		axios.get('https://fivemanuman.gitlab.io/toeic/questions/new-questions.json')
 		.then((response) => {
 			if(response.data){
