@@ -15,12 +15,13 @@ namespace EnglishExamService.Controllers
     {
         private ProducerConfig config = new ProducerConfig
         { BootstrapServers = "51.222.85.96:9092" };
-        private readonly string topic = "simpletalk_topic";
-            
+        private readonly string emailTopic = "simpletalk_topic";
+        private readonly string generateTopic = "generate_english_topic";
+
         [HttpGet("sendResult")] 
         public bool sendResultByEmail(string name, string email, int score, int correctAnswer, int totalAnswer)
         {
-            if( Created(string.Empty, SendMessageToKafka(topic,new EmailMessage(name, email, score, correctAnswer, totalAnswer)))!=null)
+            if( Created(string.Empty, SendMessageToKafka(emailTopic, new EmailMessage(name, email, score, correctAnswer, totalAnswer)))!=null)
             {
                 return true;
             }
@@ -44,6 +45,12 @@ namespace EnglishExamService.Controllers
                 }
             }
             return null;
+        }
+
+        [HttpGet("generateTopic")]
+        public bool generateEnglishTopic()
+        {
+            return false;
         }
     }
 }
