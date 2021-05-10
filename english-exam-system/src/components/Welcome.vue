@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div v-if="!isHidden">
-		<h3>An examination will be started automatically after: </h3>
+		<h3>An examination will be automatically started after: </h3>
 		<div class="cntdwn-pnl">
 			{{timerCount}}
 		</div>
@@ -21,7 +21,7 @@
 		If the application cannot automatically redirect, please click
 		<router-link class="nav-link" to="/questions"><b>here to start</b></router-link>
 	</div>
-	<h4>Good luck and have a good day</h4>
+	<h4>Good luck and have a nice day</h4>
   </div>
 </template>
 
