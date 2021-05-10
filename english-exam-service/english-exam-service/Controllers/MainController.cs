@@ -19,9 +19,9 @@ namespace EnglishExamService.Controllers
         private readonly string generateTopic = "generate_english_topic";
 
         [HttpGet("sendResult")] 
-        public bool sendResultByEmail(string name, string email, int score, int correctAnswer, int totalAnswer)
+        public bool sendResultByEmail([FromBody] EmailMessage emailMessage)
         {
-            if( Created(string.Empty, SendMessageToKafka(emailTopic, new EmailMessage(name, email, score, correctAnswer, totalAnswer)))!=null)
+            if( Created(string.Empty, SendMessageToKafka(emailTopic, emailMessage))!=null)
             {
                 return true;
             }

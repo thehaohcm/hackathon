@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{F533496E-216F-43CF-899E-B5240C94CFB7}|EnglishExamService">
   <MonoDevelop.Ide.ItemProperties.english-exam-service PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="english-exam-service/Handlers/GenerateEnglishTopicHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="english-exam-service/Models/AnswerMessage.cs">
     <Files>
-      <File FileName="english-exam-service/Controllers/MainController.cs" Line="51" Column="43" />
-      <File FileName="english-exam-service/Startup.cs" Line="30" Column="55" />
-      <File FileName="english-exam-service/Handlers/SendMailHandler.cs" Line="73" Column="37" />
+      <File FileName="english-exam-service/Controllers/MainController.cs" Line="57" Column="42" />
+      <File FileName="english-exam-service/Startup.cs" Line="28" Column="10" />
+      <File FileName="english-exam-service/Handlers/SendMailHandler.cs" Line="14" Column="59" />
       <File FileName="english-exam-service/Models/EmailMessage.cs" Line="5" Column="18" />
       <File FileName="english-exam-service/Program.cs" />
-      <File FileName="english-exam-service/Handlers/GenerateEnglishTopicHandler.cs" Line="1" Column="1" />
+      <File FileName="english-exam-service/Handlers/GenerateEnglishTopicHandler.cs" Line="18" Column="1" />
+      <File FileName="english-exam-service/Models/AnswerMessage.cs" Line="7" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +16,10 @@
           <Node name="english-exam-service" expanded="True">
             <Node name="english-exam-service" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Handlers" expanded="True">
-                <Node name="GenerateEnglishTopicHandler.cs" selected="True" />
+              <Node name="Handlers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="AnswerMessage.cs" selected="True" />
               </Node>
-              <Node name="Models" expanded="True" />
             </Node>
           </Node>
         </State>

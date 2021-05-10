@@ -78,7 +78,7 @@ namespace englishexamservice.Handlers
                     + "Name: " + emailMessage.name + "<br>"
                     + "Email: " + emailMessage.email + "<br>"
                     + "Score: " + emailMessage.score + " (" + emailMessage.correctAnswer + "/" + emailMessage.totalAnswer + ")<br><br>"
-                    + "Notice: This is an automated email, please do not reply it";
+                    + "Notice: This is an automated email, please do not reply";
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
 
                 smtpClient.Credentials = new System.Net.NetworkCredential(from, password);
