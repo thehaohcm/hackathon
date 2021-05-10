@@ -17,5 +17,5 @@
 **/*.suo
 **/*.ntvs*
 **/*.njsproj
-**/*.sln
 **/*.sw*
+**/.vs
