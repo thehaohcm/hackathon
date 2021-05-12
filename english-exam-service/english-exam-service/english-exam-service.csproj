@@ -10,11 +10,13 @@
     <Folder Include="Controllers\" />
     <Folder Include="Handlers\" />
     <Folder Include="Models\" />
+    <Folder Include="Database\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="1.6.3" />
     <PackageReference Include="Vse.Web.Serialization.ControlledSerializationJsonConverter" Version="1.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    <PackageReference Include="KafkaNet" Version="0.1.22" />
   </ItemGroup>
 </Project>
