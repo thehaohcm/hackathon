@@ -4,7 +4,11 @@ using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Confluent.Kafka;
+using englishexamservice.Handlers;
 using englishexamservice.Models;
+using KafkaNet;
+using KafkaNet.Model;
+using KafkaNet.Protocol;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -21,7 +25,7 @@ namespace EnglishExamService.Controllers
         [HttpGet("sendResult")] 
         public bool sendResultByEmail([FromBody] EmailMessage emailMessage)
         {
-            if( Created(string.Empty, SendMessageToKafka(emailTopic, emailMessage))!=null)
+            if( emailMessage!=null && Created(string.Empty, SendMessageToKafka(emailTopic, emailMessage))!=null)
             {
                 return true;
             }
@@ -30,27 +34,37 @@ namespace EnglishExamService.Controllers
 
         private Object SendMessageToKafka(string topic, EmailMessage message)
         {
-            using (var producer = new ProducerBuilder<Null, string>(config).Build())
-            {
-                try
-                {
-                    var messageJson = JsonConvert.SerializeObject(message);
-                    return producer.ProduceAsync(topic, new Message<Null, string> { Value = messageJson })
-                        .GetAwaiter()
-                        .GetResult();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Oops, something went wrong: {e}");
-                }
-            }
+            //using (var producer = new ProducerBuilder<Null, string>(config).Build())
+            //{
+            //    try
+            //    {
+            //        var messageJson = JsonConvert.SerializeObject(message);
+            //        return producer.ProduceAsync(topic, new Message<Null, string> { Value = messageJson })
+            //            .GetAwaiter()
+            //            .GetResult();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine($"Oops, something went wrong: {e}");
+            //    }
+            //}
+            //return null;
+
+
+            Message msg = new Message(JsonConvert.SerializeObject(message));
+            Uri uri = new Uri("51.222.85.96:9092");
+            var options = new KafkaOptions(uri);
+            var router = new BrokerRouter(options);
+            var client = new Producer(router);
+            client.SendMessageAsync(topic, new List<Message> { msg }).Wait();
+            Console.ReadLine();
             return null;
         }
 
         [HttpGet("generateTopic")]
-        public bool generateEnglishTopic()
+        public englishexamservice.Models.Topic generateEnglishTopic()
         {
-            return false;
+            return new GenerateEnglishTopicHandler().generateEnglishTopic();
         }
     }
 }
