@@ -21,6 +21,7 @@ namespace englishexamservice.Models
         public Topic(string code)
         {
             this.code = code;
+            this.parts = new List<Part>();
         }
     }   
 }

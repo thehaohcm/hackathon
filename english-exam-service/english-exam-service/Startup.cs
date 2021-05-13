@@ -28,7 +28,7 @@ namespace EnglishExamService
         {
             services.AddControllers();
             services.AddSingleton<IHostedService, SendMailHandler>();
-            services.AddSingleton<IHostedService, GenerateEnglishTopicHandler>();
+            //services.AddSingleton<IHostedService, GenerateEnglishTopicHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

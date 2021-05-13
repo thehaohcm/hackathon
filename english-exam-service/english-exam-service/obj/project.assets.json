@@ -15,6 +15,15 @@
           "lib/netcoreapp2.1/Confluent.Kafka.dll": {}
         }
       },
+      "kafka-net/0.9.0.65": {
+        "type": "package",
+        "compile": {
+          "lib/net45/kafka-net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/kafka-net.dll": {}
+        }
+      },
       "librdkafka.redist/1.6.1": {
         "type": "package",
         "build": {
@@ -175,6 +184,18 @@
         "lib/netstandard1.3/Confluent.Kafka.xml",
         "lib/netstandard2.0/Confluent.Kafka.dll",
         "lib/netstandard2.0/Confluent.Kafka.xml"
+      ]
+    },
+    "kafka-net/0.9.0.65": {
+      "sha512": "bJ89gwjnoNWJpw/DIU5O7vauPrm/pCaX9tFAzOyWoxqcR/ua7YxXHN1TzCY6/0OkO89eD9bsow5qt6xw4RXXPw==",
+      "type": "package",
+      "path": "kafka-net/0.9.0.65",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kafka-net.0.9.0.65.nupkg.sha512",
+        "kafka-net.nuspec",
+        "lib/net45/kafka-net.dll"
       ]
     },
     "librdkafka.redist/1.6.1": {
@@ -385,32 +406,31 @@
       "Confluent.Kafka >= 1.6.3",
       "Newtonsoft.Json >= 13.0.1",
       "System.Text.Json >= 5.0.2",
-      "Vse.Web.Serialization.ControlledSerializationJsonConverter >= 1.0.4"
+      "Vse.Web.Serialization.ControlledSerializationJsonConverter >= 1.0.4",
+      "kafka-net >= 0.9.0.65"
     ]
   },
   "packageFolders": {
-    "/Users/thehaohcm/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\hao.nguyen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj",
+      "projectUniqueName": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj",
       "projectName": "english-exam-service",
-      "projectPath": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj",
-      "packagesPath": "/Users/thehaohcm/.nuget/packages/",
-      "outputPath": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/obj/",
+      "projectPath": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj",
+      "packagesPath": "C:\\Users\\hao.nguyen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/thehaohcm/.config/NuGet/NuGet.Config"
+        "C:\\Users\\hao.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -444,6 +464,10 @@
           "Vse.Web.Serialization.ControlledSerializationJsonConverter": {
             "target": "Package",
             "version": "[1.0.4, )"
+          },
+          "kafka-net": {
+            "target": "Package",
+            "version": "[0.9.0.65, )"
           }
         },
         "imports": [
@@ -464,11 +488,21 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'kafka-net 0.9.0.65' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "kafka-net",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

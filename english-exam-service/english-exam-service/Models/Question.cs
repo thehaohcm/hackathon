@@ -11,7 +11,8 @@ namespace englishexamservice.Models
         public List<QuestionContent> questionContents { set; get; }
         public string question { get; set; }
         public List<QuestionOption> options { get; set; }
-        int answer;
+
+        public int answer { set; get; }
 
         public Question(long id, List<QuestionContent> questionContents, string question, List<QuestionOption> options, int answer)
         {

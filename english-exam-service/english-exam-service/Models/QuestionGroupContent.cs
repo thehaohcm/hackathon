@@ -8,10 +8,18 @@ namespace englishexamservice.Models
 {
     public class QuestionGroupContent
     {
-        public QuestionTypeEnum type { set; get; }
-        public string source { set; get; }
+        //public QuestionTypeEnum type { set; get; }
+        //public string source { set; get; }
 
-        public QuestionGroupContent(QuestionTypeEnum type, string source)
+        //public QuestionGroupContent(QuestionTypeEnum type, string source)
+        //{
+        //    this.type = type;
+        //    this.source = source;
+        //}
+
+        public string type { set; get; }
+        public string source { set; get; }
+        public QuestionGroupContent(string type,string source)
         {
             this.type = type;
             this.source = source;

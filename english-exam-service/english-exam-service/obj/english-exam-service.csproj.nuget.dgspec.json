@@ -1,28 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj": {}
+    "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj": {}
   },
   "projects": {
-    "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj": {
+    "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj",
+        "projectUniqueName": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj",
         "projectName": "english-exam-service",
-        "projectPath": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/english-exam-service.csproj",
-        "packagesPath": "/Users/thehaohcm/.nuget/packages/",
-        "outputPath": "/Users/thehaohcm/Desktop/development/hackathon/english-exam-service/english-exam-service/obj/",
+        "projectPath": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\english-exam-service.csproj",
+        "packagesPath": "C:\\Users\\hao.nguyen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hao.nguyen\\Desktop\\stuff\\hackathon\\english-exam-service\\english-exam-service\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/thehaohcm/.config/NuGet/NuGet.Config"
+          "C:\\Users\\hao.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,6 +55,10 @@
             "Vse.Web.Serialization.ControlledSerializationJsonConverter": {
               "target": "Package",
               "version": "[1.0.4, )"
+            },
+            "kafka-net": {
+              "target": "Package",
+              "version": "[0.9.0.65, )"
             }
           },
           "imports": [
@@ -76,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

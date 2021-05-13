@@ -25,10 +25,10 @@ namespace EnglishExamService.Controllers
         [HttpGet("sendResult")] 
         public bool sendResultByEmail([FromBody] EmailMessage emailMessage)
         {
-            if( emailMessage!=null && Created(string.Empty, SendMessageToKafka(emailTopic, emailMessage))!=null)
-            {
-                return true;
-            }
+            //if( emailMessage!=null && Created(string.Empty, SendMessageToKafka(emailTopic, emailMessage))!=null)
+            //{
+            //    return true;
+            //}
             return false;
         }
 
@@ -64,7 +64,7 @@ namespace EnglishExamService.Controllers
         [HttpGet("generateTopic")]
         public englishexamservice.Models.Topic generateEnglishTopic()
         {
-            return new GenerateEnglishTopicHandler().generateEnglishTopic();
+            return new GenerateEnglishTopicHandler().generateEnglishTopic("123");
         }
     }
 }

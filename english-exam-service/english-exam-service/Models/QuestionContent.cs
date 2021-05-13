@@ -8,7 +8,7 @@ namespace englishexamservice.Models
 {
     public class QuestionContent : QuestionGroupContent
     {
-        public QuestionContent(QuestionTypeEnum type, string source):base(type,source)
+        public QuestionContent(string type, string source):base(type,source)
         {
             
         }
